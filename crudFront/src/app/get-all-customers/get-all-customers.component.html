@@ -1,0 +1,26 @@
+<button class="btn-new" routerLink="/customer">Post New Customer</button>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- *ngFor - Looping the customer array, works as a for loop -->
+        <tr *ngFor="let  customer of customers">
+            <td>{{customer.name}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer .phone}}</td>
+            <td>
+                <!-- This will call go the routing module and call the update component -->
+                <button class="btn-update" routerLink="/customer/{{customer.id}}">Update</button>
+            </td>
+            <td>
+                <button class="btn-delete" (click)="deleteCustomer(customer.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
